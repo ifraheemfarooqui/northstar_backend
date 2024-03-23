@@ -1,5 +1,4 @@
 import asyncHandler from "express-async-handler";
-import { Category } from "./Category.js";
 import {
   get_category_by_id,
   get_category,
