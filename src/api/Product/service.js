@@ -1,4 +1,4 @@
-import { Product } from "./Product";
+import { Product } from "./Product.js";
 
 const get_product = async () => {
   const product = await Product.findAll();

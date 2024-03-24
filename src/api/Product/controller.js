@@ -6,7 +6,7 @@ import {
   get_product_by_cat,
   get_product_by_id,
   update_product,
-} from "./service";
+} from "./service.js";
 
 const GetProduct = asyncHandler(async (req, res) => {
   try {
