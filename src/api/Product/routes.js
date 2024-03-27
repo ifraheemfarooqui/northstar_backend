@@ -9,7 +9,7 @@ const router = express.Router()
 
 router.get("/",GetProduct)
 router.get("/:id",GetProductById)
-router.get("/:id",GetProductByCategory)
+router.get("/category/:id",GetProductByCategory)
 router.put("/:id",isAdmin,UpdateProduct)
 router.post("/",isAdmin,CreateProduct)
 router.delete("/:id",isAdmin,DeleteProduct)

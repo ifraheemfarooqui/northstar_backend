@@ -9,7 +9,6 @@ console.log(req.headers.authorization)
   if (req?.headers?.authorization) {
     token = req.headers?.authorization?.split(" ")[1];
 
-    console.log(token)
 
     if(!token){
       throw Error("MiddleWare Problem: Not authorized , no token")
@@ -17,7 +16,6 @@ console.log(req.headers.authorization)
 
     const decrypt = jwt.verify(token, process.env.JWT_SECRET);
 
-    console.log(token)
     try {   
     req.user = await User.findByPk(decrypt.id);
     next();

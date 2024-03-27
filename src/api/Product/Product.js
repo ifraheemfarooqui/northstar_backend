@@ -12,7 +12,7 @@ const Product = db.define ("product" ,
         primaryKey: true
     },
 
-    names : {
+    name : {
 
         type : DataTypes.STRING,
         allowNull:false,

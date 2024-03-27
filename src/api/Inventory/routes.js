@@ -7,9 +7,9 @@ import { GetInventoryById, GetInventoryByProductId, UpdateInventory } from "./co
 const router = express.Router()
 
 
-router.get("/",GetInventoryByProductId)
+router.get("/product/:id",GetInventoryByProductId)
 router.get("/:id",GetInventoryById)
-router.put("/:id",isAdmin,UpdateInventory)
+router.put("/product/:id",isAdmin,UpdateInventory)
 
 
 
