@@ -2,6 +2,7 @@ import express from "express";
 import { login_user, register_user } from "../api/Auth/controller.js";
 import userRoutes from "../api/User/routes.js"
 import catRoutes from "../api/Category/routes.js"
+import orderRoutes from "../api/Order/routes.js"
 import discountRoutes from "../api/Discount/routes.js"
 import productRoutes from "../api/Product/routes.js"
 import inventoryRoutes from "../api/Inventory/routes.js"
@@ -21,5 +22,6 @@ router.use("/discount",isAuth,discountRoutes)
 router.use("/product",isAuth,productRoutes)
 router.use("/inventory",isAuth,inventoryRoutes)
 router.use("/address",isAuth,addressRoutes)
+router.use("/order",isAuth,orderRoutes)
 
 export default router
