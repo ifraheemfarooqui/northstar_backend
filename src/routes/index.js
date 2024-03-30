@@ -7,6 +7,8 @@ import discountRoutes from "../api/Discount/routes.js"
 import productRoutes from "../api/Product/routes.js"
 import inventoryRoutes from "../api/Inventory/routes.js"
 import addressRoutes from "../api/Address/routes.js"
+import cartRoutes from "../api/Cart/routes.js"
+import paydetailsRoutes from "../api/PaymentDetails/routes.js"
 import { isAdmin, isAuth } from "../middleware/authMiddleWare.js";
 
 const router = express.Router()
@@ -23,5 +25,7 @@ router.use("/product",isAuth,productRoutes)
 router.use("/inventory",isAuth,inventoryRoutes)
 router.use("/address",isAuth,addressRoutes)
 router.use("/order",isAuth,orderRoutes)
+router.use("/order",isAuth,cartRoutes)
+router.use("/order",isAuth,paydetailsRoutes)
 
 export default router
