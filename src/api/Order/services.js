@@ -26,7 +26,7 @@ const update_order = async (data, order_id) => {
 };
 
 const delete_order = async (order_id) => {
-  const order = await Order.destroy({ where: (id = order_id) });
+  const order = await Order.destroy({ where: {id : order_id} });
   return order;
 };
 

@@ -34,7 +34,7 @@ const GetOrderById = asyncHandler(async (req, res) => {
 const CreateOrder = asyncHandler(async (req, res) => {
   try {
     const items = (req.body.items);
-     const order = await create_order(req.user_id);
+     const order = await create_order(req.user.id);
      
 
      items.forEach(i => {
@@ -68,7 +68,11 @@ const UpdatedOrder = asyncHandler(async (req, res) => {
 const DeleteOrder = asyncHandler(async (req, res) => {
   try {
     const order = await delete_order(req.params.id);
-    res.json("Order has been deleted");
+    if(order){
+      res.json("Order has been deleted");
+    }else{
+      res.json("Order has not been deleted");
+    }
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
