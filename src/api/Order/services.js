@@ -17,10 +17,12 @@ const create_order = async (user_id) => {
 
 const update_order = async (data, order_id) => {
   const order = await Order.update(data, {
-    where: { id: order_id },
-    plain: true,
-    returning: true,
-  });
+      where: { id: order_id },
+      plain: true,
+      returning: true,
+    });
+
+  return order;
 };
 
 const delete_order = async (order_id) => {

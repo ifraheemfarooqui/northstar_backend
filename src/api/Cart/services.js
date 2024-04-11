@@ -1,3 +1,4 @@
+import { OrderItem } from "../OrderItem/OrderItem.js";
 import { Cart } from "./Cart.js";
 
 const get_cart_by_id = async (cart_id) => {
@@ -5,7 +6,7 @@ const get_cart_by_id = async (cart_id) => {
   return cart;
 };
 const get_cart_by_user_id = async (user_id) => {
-  const cart = await Cart.findByPk(user_id);
+  const cart = await Cart.findByPk(user_id, {include: OrderItem});
   return cart;
 };
 

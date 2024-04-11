@@ -11,6 +11,7 @@ import {PaymentDetails} from "../api/PaymentDetails/PaymentDetails.js"
 import { Product } from "../api/Product/Product.js"
 import { Session } from "../api/Session/Session.js"
 import {  UserPay } from "../api/UserPay/UserPay.js" 
+import { orderTotaltrigger } from "./triggers.js"
 
 const init_model = async(req,res) =>{
     try {
@@ -33,5 +34,14 @@ const init_model = async(req,res) =>{
     }
 } 
 
+const init_procedure = async(req, res) => {
+    try {
+        await orderTotaltrigger()
+        res.status(200).json("Triggers created success")
+    } catch (error) {
+        res.json(error)
+    }
+}
 
-export default init_model
+export  {init_model, init_procedure}
+

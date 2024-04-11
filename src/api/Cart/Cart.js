@@ -15,11 +15,6 @@ const Cart = db.define("cart",
 
     },
 
-
-
-    
-
-
     quantity : {
         type : DataTypes.INTEGER,
         defaultValue : 1,

@@ -8,6 +8,7 @@ import {
 } from "./services.js";
 import { Order } from "./Order.js";
 import { create_orderItems } from "../OrderItem/services.js";
+import { total_price } from "../../models/total.js";
 
 const GetOrder = asyncHandler(async (req, res) => {
   try {
@@ -32,25 +33,32 @@ const GetOrderById = asyncHandler(async (req, res) => {
 
 const CreateOrder = asyncHandler(async (req, res) => {
   try {
-    const order = await create_order(req.user_id);
     const items = (req.body.items);
+     const order = await create_order(req.user_id);
+     
 
-    items.forEach(i => {
-        i.order_id = order.id   
-    });
+     items.forEach(i => {
+         i.order_id = order.id   
+     });
 
-    const orderitem = await create_orderItems(items)
-    res.json[{order : order, orderitem : orderitem}]
+     const total = await total_price(items);
+     
+     const orderitem = await create_orderItems(items);
+    
+     const final_order = await update_order({total: total}, order.id);
+
+     res.json({order : final_order[1], orderitem : orderitem})
 
     
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+   
 });
 
 const UpdatedOrder = asyncHandler(async (req, res) => {
   try {
-    const order = await update_order(body, req.params.id);
+    const order = await update_order(req.body, req.params.id);
     res.json(order);
   } catch (error) {
     res.status(500).json({ message: error.message });

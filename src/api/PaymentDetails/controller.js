@@ -5,7 +5,7 @@ import {
   create_paydetails,
   update_paydetails,
   delete_paydetails,
-} from "./services.js";
+} from "./service.js";
 
 const GetPayDetails = asyncHandler(async (req, res) => {
   await get_paydetails()

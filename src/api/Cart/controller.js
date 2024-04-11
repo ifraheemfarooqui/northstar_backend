@@ -3,10 +3,9 @@ import {
   create_cart,
   delete_cart,
   get_cart,
-  get_cart_by_cat,
   get_cart_by_id,
   update_cart,
-} from "./service.js";
+} from "./services.js";
 import { NotFound } from "../../utensils/errormessages.js";
 
 
