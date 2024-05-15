@@ -25,6 +25,11 @@ const User = db.define("user", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+ 
+  contact :{
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
 
   gender:{
     type: DataTypes.ENUM("Male","Female","Other"),

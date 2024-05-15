@@ -2,15 +2,15 @@ import { generateToken } from "../../utensils/GenerateToken.js";
 import { User } from "../User/User.js";
 import bcrypt from "bcryptjs"
 
-const registerUser = async (fullname, email, password, gender, account) => {
+const registerUser = async (fullname, email, password, gender, contact, account) => {
   const user = await User.create({
     fullname,
     email,
     password,
     gender,
+    contact,
     account,
   });
-
   const token = {...user?.dataValues, token: generateToken(user?.id)};
 
   return token;

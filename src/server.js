@@ -4,9 +4,18 @@ import db from "./config/db.js";
 import {init_model, init_procedure } from "./models/index.js";
 import bodyParser from "body-parser";
 import dotenv from "dotenv"
+import cors from "cors"
+
 const app = express();
 dotenv.config();
 app.use(bodyParser.json());
+
+app.use(
+  cors({
+    origin: "*",
+  })
+);
+
 
 app.use("/api", routes);
 

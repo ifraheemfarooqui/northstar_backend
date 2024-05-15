@@ -18,12 +18,13 @@ const get_product_by_cat = async (category_id) => {
   return product;
 };
 
-const create_product = async (name, description, price, category_id, quantity) => {
+const create_product = async (name, description, price, category_id, quantity , img_url) => {
   const product = await Product.create({
     name,
     description,
     price,
     category_id,
+    img_url,
   });
 
 const inventory = await create_inventory(quantity, product.id);

@@ -31,7 +31,15 @@ const Product = db.define ("product" ,
         type : DataTypes.FLOAT,
         defaultValue: 0,
         allowNull : false,
+    },
+
+    img_url :{
+        type : DataTypes.STRING,
+        defaultValue : null,
+        allowNull : true,
     }
+
+
 
 }
 );
@@ -45,4 +53,4 @@ Product.belongsTo(Category, {
     allowNull: false
 })
 
-export {Product}
+export {Product} 

@@ -47,13 +47,14 @@ const GetProductById = asyncHandler(async (req, res) => {
 
 const CreateProduct = asyncHandler(async (req, res) => {
   try {
-    const { names, description, price, category_id, qty } = req.body;
+    const { names, description, price, category_id, qty, img_url } = req.body;
     const product = await create_product(
       names,
       description,
       price,
       category_id,
-      qty
+      qty,
+      img_url
     );
     res.json(product);
   } catch (error) {
